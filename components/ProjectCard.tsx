@@ -32,6 +32,14 @@ const contentVariants = {
   },
 };
 
+const springTransition = {
+  type: "spring",
+  stiffness: 400,
+  damping: 15,
+  mass: 1,
+  velocity: 1.5,
+};
+
 export function ProjectCard({ project, onSelect }: ProjectCardProps) {
   return (
     <motion.li
@@ -39,8 +47,8 @@ export function ProjectCard({ project, onSelect }: ProjectCardProps) {
       className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg h-full cursor-pointer"
       variants={cardVariants}
       whileHover={{
-        y: -10,
-        transition: { duration: 0.2 },
+        scale: 1.02,
+        transition: springTransition,
       }}
       onClick={() => onSelect(project)}
     >
